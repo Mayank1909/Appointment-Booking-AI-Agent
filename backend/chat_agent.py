@@ -3,7 +3,7 @@ from google.generativeai.types import FunctionDeclaration, Tool
 import database
 import logic
 
-genai.configure(api_key="AIzaSyBYYZtioJ8Y_l0YFyk9FYbjY-p14VLmT4Q")
+genai.configure(api_key="**********")
 
 def get_chat_response(user_input: str, user_info: dict, history: list = []):
     tools = Tool(function_declarations=[
@@ -53,5 +53,6 @@ def get_chat_response(user_input: str, user_info: dict, history: list = []):
             slot = call.args['datetime_iso']
             b_id = database.add_appointment(user_info['id'], slot)
             return f"Confirmed! Booking ID: {b_id} for {slot.replace('T', ' at ')}."
+
 
     return response.text
