@@ -1,0 +1,46 @@
+/* src/components/FloatingChatButton.css */
+.floating-chat-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%; /* Make it perfectly round */
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000; /* Ensure it stays on top */
+  transition: transform 0.3s ease, background-color 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.floating-chat-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+  transform: scale(1.08); /* Slightly larger */
+}
+
+.floating-chat-button.is-open {
+  transform: rotate(90deg); /* Rotate when chat is open */
+  background-color: var(--secondary-color); /* Change color when open */
+}
+
+.floating-chat-button.is-open:hover {
+  background-color: #5a6268;
+  transform: rotate(90deg) scale(1.08);
+}
+
+.chat-icon-img {
+  width: 60%; /* Adjust size of your icon image */
+  height: 60%;
+  object-fit: contain;
+}
+
+.close-icon {
+  font-size: 2.5rem; /* Make the 'x' larger */
+  line-height: 1; /* Adjust line height for centering */
+}

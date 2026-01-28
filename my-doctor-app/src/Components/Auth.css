@@ -1,0 +1,142 @@
+/* src/components/Auth.css */
+
+/* 1. Background Container */
+.auth-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* Soft gradient to feel clean and clinical */
+  background: linear-gradient(135deg, #f0f4f1 0%, #d9e2d5 100%);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* 2. The Auth Card */
+.auth-card {
+  background: #ffffff;
+  width: 100%;
+  max-width: 420px;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  animation: slideUp 0.5s ease-out;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h2 {
+  color: #2d5a27; /* Herbal Green */
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.auth-header p {
+  color: #6c757d;
+  font-size: 0.95rem;
+  margin-top: 8px;
+}
+
+/* 3. Form Styling */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  text-align: left;
+}
+
+.input-group label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #495057;
+  margin-left: 4px;
+}
+
+.input-group input {
+  padding: 12px 16px;
+  border: 2px solid #e9ecef;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #4CAF50;
+  box-shadow: 0 0 0 4px rgba(76, 175, 80, 0.1);
+}
+
+/* 4. Error Message */
+.auth-error {
+  background-color: #fff5f5;
+  color: #e53e3e;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  margin-bottom: 20px;
+  border-left: 4px solid #e53e3e;
+  text-align: left;
+}
+
+/* 5. Buttons */
+.auth-submit-btn {
+  background-color: #2d5a27;
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.3s;
+  margin-top: 10px;
+}
+
+.auth-submit-btn:hover {
+  background-color: #23471f;
+  transform: translateY(-2px);
+}
+
+.auth-submit-btn:active {
+  transform: translateY(0);
+}
+
+/* 6. Footer & Toggling */
+.auth-footer {
+  margin-top: 25px;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6c757d;
+}
+
+.toggle-link {
+  color: #2d5a27;
+  font-weight: 700;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.toggle-link:hover {
+  color: #4CAF50;
+  text-decoration: underline;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

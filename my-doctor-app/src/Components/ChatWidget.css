@@ -1,0 +1,190 @@
+/* src/components/ChatWidget.css */
+.chat-widget {
+  position: fixed;
+  bottom: 100px; /* Position above the floating button */
+  right: 30px;
+  width: 380px; /* Slightly wider */
+  height: 550px; /* Slightly taller */
+  background-color: var(--bg-white);
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15); /* Stronger shadow */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* Ensure rounded corners */
+  z-index: 999; /* Below floating button, but above content */
+  transform: scale(0.95); /* Initial scale for subtle animation */
+  opacity: 0;
+  animation: chatFadeIn 0.3s ease-out forwards; /* Fade in animation */
+}
+
+@keyframes chatFadeIn {
+  from { transform: scale(0.95) translateY(20px); opacity: 0; }
+  to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.chat-header {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.1em;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(255,255,255,0.2);
+}
+
+.chat-header h3 {
+  margin: 0;
+  color: white; /* Ensure heading is white */
+}
+
+.close-chat-button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.8em;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 5px;
+  transition: transform 0.2s ease;
+}
+
+.close-chat-button:hover {
+  transform: scale(1.2) rotate(90deg);
+}
+
+.chat-body {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: var(--bg-light);
+  display: flex;
+  flex-direction: column;
+}
+
+.message-row {
+  display: flex;
+  margin-bottom: 15px;
+  animation: messageFadeIn 0.3s ease-out forwards; /* Message fade in */
+}
+
+@keyframes messageFadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-row.user {
+  justify-content: flex-end;
+}
+
+.message-row.bot {
+  justify-content: flex-start;
+}
+
+.message-bubble {
+  max-width: 75%;
+  padding: 12px 18px;
+  border-radius: 20px; /* More rounded */
+  font-size: 0.95em;
+  line-height: 1.5;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08); /* Subtle bubble shadow */
+}
+
+.message-bubble.user {
+  background-color: var(--primary-color);
+  color: white;
+  border-bottom-right-radius: 5px;
+}
+
+.message-bubble.bot {
+  background-color: #e9ecef; /* Lighter grey for bot */
+  color: var(--text-color);
+  border-bottom-left-radius: 5px;
+}
+
+.chat-input-area {
+  padding: 15px 20px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-white);
+  display: flex;
+  gap: 10px;
+}
+
+.chat-input-area input {
+  flex: 1;
+  padding: 12px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 25px; /* Fully rounded input */
+  outline: none;
+  font-size: 0.95em;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.chat-input-area input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+}
+
+.chat-input-area button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px; /* Fully rounded button */
+  font-size: 0.95em;
+  font-weight: 600;
+  transition: background-color 0.2s ease;
+}
+
+.chat-input-area button:hover:not(:disabled) {
+  background-color: #0056b3;
+  transform: translateY(-1px);
+}
+
+.chat-input-area button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Typing Indicator Animation */
+.typing-indicator {
+  width: 50px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 15px;
+  border-radius: 20px;
+  background-color: #e9ecef;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.typing-indicator::before,
+.typing-indicator::after,
+.typing-indicator div {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #aaa; /* Grey dots */
+  border-radius: 50%;
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.typing-indicator::before {
+  animation-delay: -0.32s;
+}
+
+.typing-indicator div {
+  animation-delay: -0.16s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
